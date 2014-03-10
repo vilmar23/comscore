@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.example.plugin.comscore"
+    version="0.6.0">
+
+	<name>comScorePlugin</name>
+    <repo>https://github.com/vilmar23/comscore.git</repo>
+
+    <js-module src="www/comscore.js" name="comScorePlugin">
+        <clobbers target="window.comScorePlugin" />
+    </js-module>
+
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+          <feature name="comScorePlugin" >
+              <param name="android-package" value="com.example.plugin.comScorePlugin"/>
+          </feature>
+		</config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+		<source-file src="src/android/comScorePlugin.java" target-dir="src/com/example/plugin/" />
+    </platform>
+
+
+</plugin>
