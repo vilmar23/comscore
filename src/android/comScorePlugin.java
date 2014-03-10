@@ -28,8 +28,6 @@ public class comScorePlugin extends CordovaPlugin {
         Context context=this.cordova.getActivity().getApplicationContext();
 
         comScore.setAppContext(context);
-        comScore.setCustomerC2("14600568");
-        comScore.setPublisherSecret("ae7ddf31c603051f21d1d166921079aa");
         Log.i(LOG_TAG, "Inicializamos Comscore");
     }
 
@@ -52,7 +50,9 @@ public class comScorePlugin extends CordovaPlugin {
         PluginResult.Status status = PluginResult.Status.OK;
         String result = "";
         if (action.equals("create")) {
-
+            comScore.setCustomerC2(args.getString(0));
+            comScore.setPublisherSecret(args.getString(1));
+            Log.i(LOG_TAG, "Añadimos datos. C2:"+args.getString(0)+" y Secret:"+args.getString(1));
         }
         return false;
     }
