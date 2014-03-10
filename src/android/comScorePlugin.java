@@ -30,19 +30,20 @@ public class comScorePlugin extends CordovaPlugin {
         comScore.setAppContext(context);
         comScore.setCustomerC2("14600568");
         comScore.setPublisherSecret("ae7ddf31c603051f21d1d166921079aa");
-        Log.e(LOG_TAG, "Inicializamos Comscore" + e.getMessage(), e);
+        Log.i(LOG_TAG, "Inicializamos Comscore");
     }
 
+    @Override
     public void onResume() {
+        super.onResume();
         comScore.onEnterForeground();
-        Log.e(LOG_TAG, "Error unregistering phone listener receiver: " + e.getMessage(), e);
-        Log.e(LOG_TAG, "Foreground" + e.getMessage(), e);
+        Log.i(LOG_TAG, "Foreground");
     }
 
+    @Override
     public void onPause() {
-       comScore.onExitForeground();
-       Log.e(LOG_TAG, "Error unregistering phone listener receiver: " + e.getMessage(), e);
-       Log.e(LOG_TAG, "Background" + e.getMessage(), e);
+       super.onResumePause.onExitForeground();
+       Log.i(LOG_TAG, "Background");
     }
 
      @Override
