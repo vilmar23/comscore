@@ -35,14 +35,14 @@ public class comScorePlugin extends CordovaPlugin {
 
     @Override
     public void onResume() {
-        super.onResume();
+        super.onResume(false);
         comScore.onEnterForeground();
         Log.i(LOG_TAG, "Foreground");
     }
 
     @Override
     public void onPause() {
-       super.onPause();
+       super.onPause(false);
        comScore.onExitForeground();
        Log.i(LOG_TAG, "Background");
     }
